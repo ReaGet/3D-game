@@ -1,0 +1,4 @@
+c:\users\reaget\documents\visual studio 2010\Projects\3D game in console\3D game in console\bin\Debug\3D game in console.exe
+c:\users\reaget\documents\visual studio 2010\Projects\3D game in console\3D game in console\bin\Debug\3D game in console.pdb
+c:\users\reaget\documents\visual studio 2010\Projects\3D game in console\3D game in console\obj\x86\Debug\3D game in console.exe
+c:\users\reaget\documents\visual studio 2010\Projects\3D game in console\3D game in console\obj\x86\Debug\3D game in console.pdb
