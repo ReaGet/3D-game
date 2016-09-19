@@ -9,18 +9,20 @@ namespace _3D_game_in_console
 {
     class Program
     {
-        static Bitmap img = new Bitmap(30, 20);
-        static Graphics g = Graphics.FromImage(img);
+        static Draw draw = new Draw();
+        static Rectangle rect;
         static int FPS = 30;
+
+        public static Vector2D pos = new Vector2D();
 
         static void Main(string[] args)
         {
-            g.DrawArc(Pens.White, 0, 0, 10, 10, 0, 360);
-            Loop();
-            
+            rect = new Rectangle(0, 0, 10, 10);
+            Loop();   
         }
 
-        static void Loop() {
+        static void Loop()
+        {
             while (true)
             {
                 Update();
@@ -30,26 +32,24 @@ namespace _3D_game_in_console
             }
         }
 
-        static void Update() {
-        
+        static float vx = 1,
+                     vy = 1;
+        static void Update()
+        {
+            rect.X += vx;
+            rect.Y += vy;
+            if (rect.X < 0 || rect.X + rect.WIDTH + 1 > 79)
+                vx *= -1;
+            if (rect.Y < 0 || rect.Y + rect.HEIGHT + 1> 20)
+                vy *= -1;
         }
 
-        static void Render() {
-            Console.Clear();
-            string output = "";
-            for (int y = 0; y < img.Height; y++)
-            {
-                for (int x = 0; x < img.Width; x++)
-                {
-                    var pixel = img.GetPixel(x, y);
-                    if (pixel.A != 255)
-                        output += " ";
-                    else
-                        output += "@";
-                }
-                output += "\n";
-            }
-            Console.Write(output);
+        static void Render()
+        {
+            draw.clear();
+            draw.rect(rect);
+
+            draw.render();
         }
     }
 }
