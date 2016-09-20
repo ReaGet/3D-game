@@ -7,14 +7,14 @@ namespace _3D_game_in_console
 {
     class Rectangle
     {
-        private float x, y, width, height;
+        private float x, y, width, height, rotation;
 
         public Rectangle() { }
 
         public Rectangle(float x, float y, float width, float height)
         {
             this.x = x;
-            this.x = y;
+            this.y = y;
             this.width = width;
             this.height = height;
         }
@@ -29,6 +29,12 @@ namespace _3D_game_in_console
         {
             get { return y; }
             set { y = value; }
+        }
+
+        public float Rotation
+        {
+            get { return rotation; }
+            set { rotation = value; }
         }
 
         public float WIDTH

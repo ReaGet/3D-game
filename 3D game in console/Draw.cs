@@ -28,11 +28,39 @@ namespace _3D_game_in_console
 
         public void rect(Rectangle rect)
         {
-            g.DrawRectangle(Pens.White, rect.X, rect.Y, rect.WIDTH, rect.HEIGHT);
+            Point[] points = { new Point((int)rect.X, (int)rect.Y),
+                               new Point((int)(rect.X + rect.WIDTH), (int)rect.Y),
+                               new Point((int)(rect.X + rect.WIDTH), (int)(rect.Y + rect.HEIGHT)),
+                               new Point((int)(rect.X), (int)(rect.Y + rect.HEIGHT)) };
+            
+
+            line(points[0], points[1]);
+            line(points[1], points[2]);
+            line(points[2], points[3]);
+            line(points[3], points[0]);
+
+            /*line(rect.X, rect.Y, rect.X + rect.WIDTH, rect.Y);
+            line(rect.X + rect.WIDTH, rect.Y, rect.X + rect.WIDTH, rect.Y + rect.HEIGHT);
+            line(rect.X + rect.WIDTH, rect.Y + rect.HEIGHT, rect.X, rect.Y + rect.HEIGHT);
+            line(rect.X, rect.Y + rect.HEIGHT, rect.X, rect.Y);*/
         }
         public void rect(float x, float y, float width, float height)
         {
-            g.DrawRectangle(Pens.White, x, y, width, height);
+            //g.DrawRectangle(Pens.White, x, y, width, height);
+            line(x, y, x + width, y);
+            line(x + width, y, x + width, y + height);
+            line(x + width, y + height, x, y + height);
+            line(x, y + height, x, y);
+        }
+
+        public void line(Point p1, Point p2)
+        {
+            g.DrawLine(Pens.White, p1, p2);
+        }
+
+        public void line(float x1, float y1, float x2, float y2)
+        {
+            g.DrawLine(Pens.White, new Point((int)x1, (int)y1), new Point((int)x2, (int)y2));
         }
 
         public void render()
