@@ -10,7 +10,6 @@ namespace _3D_game_in_console
     class Program
     {
         static Draw draw = new Draw();
-        static Rectangle rect;
         static Rectangle rect2;
         static int FPS = 30;
 
@@ -18,7 +17,7 @@ namespace _3D_game_in_console
 
         static void Main(string[] args)
         {
-            rect2 = new Rectangle(5, 20, 5, 5);
+            rect2 = new Rectangle(7, 5, 10, 10);
             Loop();   
         }
 
@@ -41,7 +40,7 @@ namespace _3D_game_in_console
         static void Render()
         {
             draw.clear();
-            rect2.Rotation = 5;
+            rect2.Rotation += 0.1f;
             draw.rect(rect2);
 
             draw.render();

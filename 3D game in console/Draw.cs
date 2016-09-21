@@ -32,17 +32,42 @@ namespace _3D_game_in_console
                                new Point((int)(rect.X + rect.WIDTH), (int)rect.Y),
                                new Point((int)(rect.X + rect.WIDTH), (int)(rect.Y + rect.HEIGHT)),
                                new Point((int)(rect.X), (int)(rect.Y + rect.HEIGHT)) };
-            
+
+            float cx = rect.X + rect.WIDTH / 2,
+                  cy = rect.Y + rect.HEIGHT / 2;
+            double angle = rect.Rotation;
+            /*
+            // UL
+            points[0].X = (int)((points[0].X - cx) * Math.Cos(angle) - (points[0].Y - cy) * Math.Sin(angle) + cx);
+            points[0].Y = (int)((points[0].Y - cy) * Math.Cos(angle) + (points[0].X - cx) * Math.Sin(angle) + cy);
+            // UR
+            points[1].X = (int)((points[1].X - cx) * Math.Cos(angle) - (points[1].Y - cy) * Math.Sin(angle) + cx);
+            points[1].Y = (int)((points[1].Y - cy) * Math.Cos(angle) + (points[1].X - cx) * Math.Sin(angle) + cy);
+            // BL
+            points[2].X = (int)((points[2].X - cx) * Math.Cos(angle) - (points[2].Y - cy) * Math.Sin(angle) + cx);
+            points[2].Y = (int)((points[2].Y - cy) * Math.Cos(angle) + (points[2].X - cx) * Math.Sin(angle) + cy);
+            // BR
+            points[3].X = (int)((points[3].X - cx) * Math.Cos(angle) - (points[3].Y - cy) * Math.Sin(angle) + cx);
+            points[3].Y = (int)((points[3].Y - cy) * Math.Cos(angle) + (points[3].X - cx) * Math.Sin(angle) + cy);
+            */
+
+            // UL
+            points[0].X = (int)((points[0].X - cx) * Math.Cos(angle) - (points[0].Y - cy) * Math.Sin(angle) + cx);
+            points[0].Y = (int)((points[0].Y - cy) * Math.Cos(angle) + (points[0].X - cx) * Math.Sin(angle) + cy);
+            // UR
+            points[1].X = (int)((points[1].X - cx) * Math.Cos(angle) - (points[1].Y - cy) * Math.Sin(angle) + cx);
+            points[1].Y = (int)((points[1].Y - cy) * Math.Cos(angle) + (points[1].X - cx) * Math.Sin(angle) + cy);
+            // BL
+            points[2].X = (int)((points[2].X - cx) * Math.Cos(angle) - (points[2].Y - cy) * Math.Sin(angle) + cx);
+            points[2].Y = (int)((points[2].Y - cy) * Math.Cos(angle) + (points[2].X - cx) * Math.Sin(angle) + cy);
+            // BR
+            points[3].X = (int)((points[3].X - cx) * Math.Cos(angle) - (points[3].Y - cy) * Math.Sin(angle) + cx);
+            points[3].Y = (int)((points[3].Y - cy) * Math.Cos(angle) + (points[3].X - cx) * Math.Sin(angle) + cy);
 
             line(points[0], points[1]);
             line(points[1], points[2]);
             line(points[2], points[3]);
             line(points[3], points[0]);
-
-            /*line(rect.X, rect.Y, rect.X + rect.WIDTH, rect.Y);
-            line(rect.X + rect.WIDTH, rect.Y, rect.X + rect.WIDTH, rect.Y + rect.HEIGHT);
-            line(rect.X + rect.WIDTH, rect.Y + rect.HEIGHT, rect.X, rect.Y + rect.HEIGHT);
-            line(rect.X, rect.Y + rect.HEIGHT, rect.X, rect.Y);*/
         }
         public void rect(float x, float y, float width, float height)
         {
